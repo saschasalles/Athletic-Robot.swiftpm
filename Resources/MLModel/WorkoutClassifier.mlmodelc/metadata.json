@@ -1,0 +1,91 @@
+[
+  {
+    "metadataOutputVersion" : "3.0",
+    "shortDescription" : "A simple workout detector: Squats & Jumping Jacks",
+    "outputSchema" : [
+      {
+        "isOptional" : "0",
+        "keyType" : "String",
+        "formattedType" : "Dictionary (String → Double)",
+        "type" : "Dictionary",
+        "name" : "labelProbabilities",
+        "shortDescription" : "Probability of each category"
+      },
+      {
+        "isOptional" : "0",
+        "formattedType" : "String",
+        "type" : "String",
+        "name" : "label",
+        "shortDescription" : "Most likely action category"
+      }
+    ],
+    "storagePrecision" : "Float32",
+    "modelParameters" : [
+
+    ],
+    "author" : "Sascha Sallès",
+    "specificationVersion" : 4,
+    "computePrecision" : "Float16",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.15",
+      "tvOS" : "13.0",
+      "watchOS" : "6.0",
+      "iOS" : "13.0",
+      "macCatalyst" : "13.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_neuralNetworkClassifier"
+    },
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 60 × 3 × 18)",
+        "shortDescription" : "A sequence of body poses to classify. Its multiarray encoding uses the first dimension to index time over 60 frames. The second dimension indexes x, y, and confidence of pose keypoint locations. The last dimension indexes the keypoint type, ordered as: nose, neck, right shoulder, right elbow, right wrist, left shoulder, left elbow, left wrist, right hip, right knee, right ankle, left hip, left knee, left ankle, right eye, left eye, right ear, left ear",
+        "shape" : "[60, 3, 18]",
+        "name" : "poses",
+        "type" : "MultiArray"
+      }
+    ],
+    "classLabels" : [
+      "Jumping Jacks",
+      "Other",
+      "Squats"
+    ],
+    "generatedClassName" : "WorkoutClassifier",
+    "userDefinedMetadata" : {
+      "target" : "label",
+      "com.apple.coreml.model.preview.type" : "actionClassifier",
+      "Target Frame Rate" : "30.0",
+      "com.apple.createml.version" : "12.4.0",
+      "classes" : "Jumping Jacks,Other,Squats",
+      "com.apple.createml.app.tag" : "78.8",
+      "max_iterations" : "130",
+      "type" : "action_classification",
+      "com.apple.createml.app.version" : "3.0",
+      "Prediction Window Size" : "60"
+    },
+    "neuralNetworkLayerTypeHistogram" : {
+      "ReshapeDynamic" : 1,
+      "AddBroadcastable" : 6,
+      "Convolution" : 27,
+      "Transpose" : 16,
+      "ReshapeStatic" : 2,
+      "LoadConstantND" : 2,
+      "PaddingConstant" : 7,
+      "GetShape" : 1,
+      "Softmax" : 1,
+      "SplitND" : 7,
+      "Squeeze" : 1,
+      "BatchNorm" : 20,
+      "ExpandDims" : 2,
+      "ConcatND" : 8,
+      "Gather" : 1,
+      "ActivationReLU" : 14,
+      "PoolingAverage" : 1
+    },
+    "method" : "predict"
+  }
+]
