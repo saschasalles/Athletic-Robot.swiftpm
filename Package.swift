@@ -36,10 +36,11 @@ let package = Package(
             name: "AppModule",
             path: ".",
 	    resources: [
-            	.process("Resources/3DAssets/RobotScene.scn"),
-		.process("Resources/3DAssets/FocusScene.scn"),
-		.process("Resources/MLModel/WorkoutClassifier.mlmodelc"),
-       		.process("Resources/Sounds/WWDC22SoftSong.m4a")
+                .process("Resources/3DAssets/RobotScene.scn"),
+                .process("Resources/3DAssets/FocusScene.scn"),
+                .process("Resources/MLModel/WorkoutClassifier.mlmodelc"),
+                .process("Resources/Sounds/WWDC22SoftSong.m4a"),
+                .process("README.md")
             ]
         )
     ]

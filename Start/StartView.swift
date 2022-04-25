@@ -11,6 +11,7 @@ struct StartView: View {
     @State private var scale: CGFloat = 7.0
     @State private var textIsBlinking = false
     @State private var shouldPresentPresentationView = false
+    @State private var shouldPresentAboutView = false
 
     var body: some View {
         VStack {
@@ -49,21 +50,34 @@ struct StartView: View {
 
 
                 if scale == 1 {
-                    Button {
-                        shouldPresentPresentationView.toggle()
-                    } label: {
-                        HStack(spacing: 7) {
-                            Text("Press to start")
-                            Image(systemName: "arrow.right")
+                    VStack {
+                        Button {
+                            shouldPresentPresentationView.toggle()
+                        } label: {
+                            HStack(spacing: 7) {
+                                Text("Press to start")
+                                Image(systemName: "arrow.right")
+                            }
+                            .opacity(textIsBlinking ? 0.5 : 1)
                         }
-                        .opacity(textIsBlinking ? 0.5 : 1)
-                    }
-                    .padding(.top, 40)
-                    .buttonStyle(WhiteButtonStyle())
-                    .onAppear {
-                        withAnimation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true)) {
-                            textIsBlinking.toggle()
+                        .padding(.top, 40)
+                        .buttonStyle(WhiteButtonStyle())
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true)) {
+                                textIsBlinking.toggle()
+                            }
                         }
+
+                        Button {
+                            shouldPresentAboutView.toggle()
+                        } label: {
+                            HStack(spacing: 7) {
+                                Text("About Athletic Robot")
+                                Image(systemName: "person.fill.questionmark")
+                            }
+                        }
+                        .padding(.top, 40)
+                        .buttonStyle(WhiteButtonStyle())
                     }
                 }
             }
@@ -96,6 +110,6 @@ struct StartView: View {
         .fullScreenCover(isPresented: $shouldPresentPresentationView) {
             RobotPresentationView(viewModel: RobotPresentationViewModel())
         }
-
+        .fullScreenCover(isPresented: $shouldPresentAboutView) { AboutView() }
     }
 }

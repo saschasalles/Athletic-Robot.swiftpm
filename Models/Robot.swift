@@ -15,10 +15,10 @@ struct Robot: Identifiable {
     let id = UUID()
     let introSentences: [String] = [
         "Hello my dear 😄",
-        "Nice to meet you ! ",
-        "I am Tim Coach, your personal trainer 💪 \nHere to serve you!",
-        "Today we are going to learn how to make some Squats and Jumping Jacks",
-        "Let's me show you this in AR"
+        "I am delighted to meet you !",
+        "My name is Tim Coach and I will be your personal trainer for the next few minutes",
+        "Today we are going to do a little physical exercise and we are going to do squats and jumping jacks.",
+        "Let me show you all this in AR"
     ]
 
     let motivationSentences: [String]

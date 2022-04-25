@@ -119,7 +119,6 @@ struct RobotARView: View {
                                         .lineLimit(3)
                                         .fixedSize(horizontal: false, vertical: true)
                                 }
-                                .foregroundColor(Color(uiColor: .systemGray6))
                                 .padding(.bottom, 30)
 
                                 HStack(spacing: 20) {

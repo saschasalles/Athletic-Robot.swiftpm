@@ -151,13 +151,6 @@ struct WorkoutLiveView: View {
                                 Label("Retry", systemImage: "arrow.counterclockwise")
                             }
                             .buttonStyle(WhiteButtonStyle())
-
-                            Button {
-                                // viewModel.goToHome()
-                            } label: {
-                                Label("Go back to home", systemImage: "house")
-                            }
-                            .buttonStyle(WhiteButtonStyle())
                         }
                     }
                 }
