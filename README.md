@@ -6,6 +6,7 @@ Used technologies:
 
 - SceneKit
 - ARKit
+- AVFoundation
 - CreateML
 - CoreML
 - Combine
