@@ -8,6 +8,7 @@ Used technologies:
 - ARKit
 - AVFoundation
 - CreateML
+- Vision
 - CoreML
 - Combine
 - UIKit / SwiftUI
